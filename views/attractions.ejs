@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>HOME</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/" style="color: white;">
+        <img src="https://i.ibb.co/k3TByGy/flag.png" alt="" width="30" height="24"
+          class="d-inline-block align-text-top">
+        Springtown Travel Agency
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style="color: white">Attractions</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container" style="margin-top: 12px; width: 60%;">
+    <h2> Filter Results </h2>
+  </div>
+
+  <div class="container" style="width: 40%;">
+    <form style="margin-top: 15px;">
+
+      <!-- Price Row -->
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInputGridminPrice" value="<%= att[0] %>">
+            <label for="floatingInputGridminPrice">Minimum Price</label>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInputGridMaxPrice" value="<%= att[1] %>">
+            <label for="floatingInputGridMaxPrice">Maximum Price</label>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Rating Row -->
+      <div class="row g-2" style="margin-top: 12px;">
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInputGridminRate" value="<%= att[2] %>">
+            <label for="floatingInputGridmineRate">Minimum Rating</label>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInputGridmaxRate" value="<%= att[3] %>">
+            <label for="floatingInputGridmaxRate">Maximum Rating</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Distance Row -->
+      <div class="row g-2" style="margin-top: 12px;">
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInputGridminDistance" value="<%= att[5] %>">
+            <label for="floatingInputGridminDistance">Minimum Distance</label>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInputGridmaxDistance" value="<%= att[6] %>">
+            <label for="floatingInputGridmaxDistance">Maximum Distance</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parking Row -->
+      <div class="form-floating" style="margin-top: 12px;">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+          <% if(att[4]=="true" ) { %>
+            <option selected>Yes I need parking</option>
+            <% } %>
+              <% if(att[4]=="false" ) { %>
+                <option selected>No I don't need parking</option>
+                <% } %>
+                  <option value="1">Yes I need parking</option>
+                  <option value="2">No I don't need parking</option>
+        </select>
+        <label for="floatingSelect">Do you Need Parking?</label>
+      </div>
+
+      <!-- Busy Row -->
+
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Traffic</label>
+        <div class="col-sm-10 offset-sm-2">
+          <div class="form-check">
+            <% if(att[7]=="true" ) { %>
+              <input class="form-check-input" type="checkbox" id="gridCheck1" checked>
+              <% } else { %>
+                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                <% } %>
+                  <label class="form-check-label" for="gridCheck1">
+                    Lightly Busy
+                  </label>
+          </div>
+          <div class="form-check">
+            <% if(att[8]=="true" ) { %>
+              <input class="form-check-input" type="checkbox" id="gridCheck2" checked>
+              <% } else { %>
+                <input class="form-check-input" type="checkbox" id="gridCheck2">
+                <% } %>
+                  <label class="form-check-label" for="gridCheck2">
+                    Moderately Busy
+                  </label>
+          </div>
+          <div class="form-check">
+            <% if(att[9]=="true" ) { %>
+              <input class="form-check-input" type="checkbox" id="gridCheck3" checked>
+              <% } else { %>
+                <input class="form-check-input" type="checkbox" id="gridCheck3">
+                <% } %>
+                  <label class="form-check-label" for="gridCheck3">
+                    Very Busy
+                  </label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" onclick="return sendData()" class="btn btn-primary">Apply Changes</button>
+    </form>
+  </div>
+
+
+
+  <div class="container" style="text-align: center; margin-top: 20px;;">
+
+
+
+
+
+
+    <div class="row" style="height: 250px;">
+      <% data.forEach(element=> { %>
+        <div class="col-sm-6" style="margin-bottom: 15px;">
+          <div class="card" style="height: 100%;">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= element["name"] %>
+              </h5>
+              <p class="card-text">
+                <%= element["decription"] %>
+              </p>
+              <div data-bs-toggle="tooltip" data-bs-placement="top" title="Contact Info"
+                style="margin-bottom: 5px;">
+                <p class="card-text">Phone: <strong>
+                    <%= element["phone"] %>
+                  </strong></p>
+              </div>
+              <div data-bs-toggle="tooltip" data-bs-placement="top" title="Average Of All Ratings"
+                style="margin-bottom: 15px;">
+                <p class="card-text">Average Rating: <strong>
+                    <%= element["rateAvg"] %>
+                  </strong> <i class="fa-solid fa-star" style="color: rgb(195, 195, 84);"></i></p>
+              </div>
+              <div data-bs-toggle="tooltip" data-bs-placement="top" title="Expected Price Per Person"
+              style="margin-bottom: 15px;">
+              <p class="card-text">Price: <strong>
+                  <%= element["price"] %>
+                </strong>
+            </div>
+
+              <div data-bs-toggle="tooltip" data-bs-placement="top" title="How Busy Is This Attraction"
+              style="margin-bottom: 15px;">
+              
+              <p class="card-text">Traffic Level: <strong>
+                  <%= element["busy"] %>
+                  <% if(element["busy"] == "Light") { %>
+                </strong> <i class="fa-solid fa-circle" style="color: rgb(93, 195, 84);"></i>
+              <% } else if(element["busy"] == "Moderate") { %>
+                </strong> <i class="fa-solid fa-circle" style="color: rgb(199, 178, 85);"></i>
+              <% } else if(element["busy"] == "Busy") { %>
+                </strong> <i class="fa-solid fa-circle" style="color: rgb(195, 84, 84);"></i>
+              <% } %> 
+              </p>
+            </div>
+              <a href="#" class="btn btn-primary">More Info</a>
+            </div>
+          </div>
+        </div>
+
+        <% }) %>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+    function sendData() {
+      let parkSe = "false"
+      if(document.getElementById("floatingSelect").value == "1" || document.getElementById("floatingSelect").value == "Yes I need parking"){
+        parkSe = "true"
+      }
+      let b1send = "false";
+      let b2send = "false";
+      let b3send = "false";
+      if (document.getElementById("gridCheck1").checked) {
+        b1send = "true";
+        //alert(b1send);
+      }
+      if (document.getElementById("gridCheck2").checked) {
+        b2send = "true";
+      }
+      if (document.getElementById("gridCheck3").checked) {
+        b3send = "true";
+      }
+      let dataa = [document.getElementById("floatingInputGridminPrice").value, document.getElementById("floatingInputGridMaxPrice").value, document.getElementById("floatingInputGridminRate").value, document.getElementById("floatingInputGridmaxRate").value, parkSe , document.getElementById("floatingInputGridminDistance").value, document.getElementById("floatingInputGridmaxDistance").value, b1send, b2send, b3send];
+      let redLink = {
+        minPrice: dataa[0],
+        maxPrice: dataa[1],
+        minRate: dataa[2],
+        maxRate: dataa[3],
+        park: dataa[4],
+        minDistance: dataa[5],
+        maxDistance: dataa[6],
+        b11: dataa[7],
+        b22: dataa[8],
+        b33: dataa[9]
+      };
+      window.location.replace(`/attractions/${dataa[0]}/${dataa[1]}/${dataa[2]}/${dataa[3]}/${dataa[4]}/${dataa[5]}/${dataa[6]}/${dataa[7]}/${dataa[8]}/${dataa[9]}`);
+      
+      $.ajax({
+        type: "POST",
+        url: `/reload`,
+        data: {
+          minPrice: dataa[0],
+          maxPrice: dataa[1],
+          minRate: dataa[2],
+          maxRate: dataa[3],
+          park: dataa[4],
+          minDistance: dataa[5],
+          maxDistance: dataa[6],
+          b11: dataa[7],
+          b22: dataa[8],
+          b33: dataa[9]
+        },
+        error: function () {
+          window.location.assign(`/attractions/${dataa[0]}/${dataa[1]}/${dataa[2]}/${dataa[3]}/${dataa[4]}/${dataa[5]}/${dataa[6]}/${dataa[7]}/${dataa[8]}/${dataa[9]}`);
+        },
+        success: function () {
+          window.location.assign(`/attractions/${dataa[0]}/${dataa[1]}/${dataa[2]}/${dataa[3]}/${dataa[4]}/${dataa[5]}/${dataa[6]}/${dataa[7]}/${dataa[8]}/${dataa[9]}`);
+          alert(`/attractions/${redLink["minPrice"]}/${redLink["maxPrice"]}/${redLink["minRate"]}/${redLink["maxRate"]}/${redLink["park"]}/${redLink["minDistance"]}/${redLink["maxDistance"]}/${redLink["b11"]}/${redLink["b22"]}/${redLink["b33"]}`)
+        }
+      });
+      return false;
+    }
+    
+  </script>
+
+
+
+  <script src="https://kit.fontawesome.com/4b5ab270a6.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+
+</html>

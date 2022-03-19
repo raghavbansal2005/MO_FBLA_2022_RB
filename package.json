@@ -1,0 +1,25 @@
+{
+  "name": "mo_fbla_2022_rb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raghavbansal2005/MO_FBLA_2022_RB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raghavbansal2005/MO_FBLA_2022_RB/issues"
+  },
+  "homepage": "https://github.com/raghavbansal2005/MO_FBLA_2022_RB#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.7"
+  }
+}
