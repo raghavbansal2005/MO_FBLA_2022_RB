@@ -1,7 +1,7 @@
 # About
 This is Raghav Bansal's official submission for 2022 FBLA MO SLC
 
-#Usage
+# Usage
 This app is very easy to use and requires no installation or downloads. This application can be accessed [here](https://hidden-falls-37034.herokuapp.com/).
 
 # Package Usage
