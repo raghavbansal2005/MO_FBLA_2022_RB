@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const Attraction = require("./models/attraction");
 
-const dbUrl = process.env.DB_URL || 'mongodb+srv://raghavfbla2022:Mymail12!@cluster0.uzckl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const dbUrl = process.env.DB_URL
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -118,6 +118,7 @@ app.get("/about", (req, res) => {
 })
 
 
-app.listen(3000, () => {
-	console.log("Serving on Port 3000");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`)
 })
